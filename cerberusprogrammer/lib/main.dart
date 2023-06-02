@@ -3,7 +3,7 @@ import 'package:cerberusprogrammer/themes.dart';
 import 'package:flutter/material.dart';
 import 'package:shared_preferences/shared_preferences.dart';
 
-import 'home.dart';
+import 'android/home.dart';
 
 void main() async {
   WidgetsFlutterBinding.ensureInitialized();
@@ -25,14 +25,14 @@ void main() async {
         colorSchemeSeed: Themes.colors[Themes.defaultIndex],
         useMaterial3: true,
       ),
-      initial: savedThemeMode ?? AdaptiveThemeMode.light,
+      inporṕitial: savedThemeMode ?? AdaptiveThemeMode.light,
       builder: (theme, darkTheme) {
         return MaterialApp(
           debugShowCheckedModeBanner: false,
-          title: "Enfo",
+          title: "SazarCode",
           theme: theme,
           darkTheme: darkTheme,
-          home: const Home(),
+          home: const AndroidHome(),
         );
       }));
 }
