@@ -1,5 +1,4 @@
 import 'package:flutter/material.dart';
-import 'package:fluentui_system_icons/fluentui_system_icons.dart';
 
 class WindowsHome extends StatelessWidget {
   const WindowsHome({super.key});
@@ -14,9 +13,7 @@ class WindowsHome extends StatelessWidget {
           child: Container(
             color: Colors.blue,
             child: Row(
-              children: const [
-                Icon(FluentIcons.window_16_filled),
-              ],
+              children: const [],
             ),
           ),
         )
