@@ -1,5 +1,6 @@
 import 'package:adaptive_theme/adaptive_theme.dart';
 import 'package:cerberusprogrammer/themes.dart';
+import 'package:cerberusprogrammer/windows/home.dart';
 import 'package:flutter/material.dart';
 import 'package:shared_preferences/shared_preferences.dart';
 
@@ -12,7 +13,7 @@ void main() async {
   final prefs = await SharedPreferences.getInstance();
 
   Themes.defaultIndex = prefs.getInt('defaultIndex') ?? 10;
-  bool presentation = prefs.getBool('presentation') ?? true;
+  //bool presentation = prefs.getBool('presentation') ?? true;
 
   runApp(AdaptiveTheme(
       light: ThemeData(
@@ -25,14 +26,14 @@ void main() async {
         colorSchemeSeed: Themes.colors[Themes.defaultIndex],
         useMaterial3: true,
       ),
-      inporṕitial: savedThemeMode ?? AdaptiveThemeMode.light,
+      initial: savedThemeMode ?? AdaptiveThemeMode.light,
       builder: (theme, darkTheme) {
         return MaterialApp(
           debugShowCheckedModeBanner: false,
           title: "SazarCode",
           theme: theme,
           darkTheme: darkTheme,
-          home: const AndroidHome(),
+          home: const WindowsHome(),
         );
       }));
 }
