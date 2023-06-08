@@ -26,17 +26,17 @@ class _AndroidHomeState extends State<AndroidHome> {
           Navigator.push(context, MaterialPageRoute(builder: (builder) {
             return const PlayStore();
           }));
-        }
-
-        final uri = Uri.parse(url);
-
-        if (await canLaunchUrl(uri)) {
-          await launchUrl(
-            uri,
-            mode: LaunchMode.externalApplication,
-          );
         } else {
-          throw 'Could not launch $url';
+          final uri = Uri.parse(url);
+
+          if (await canLaunchUrl(uri)) {
+            await launchUrl(
+              uri,
+              mode: LaunchMode.externalApplication,
+            );
+          } else {
+            throw 'Could not launch $url';
+          }
         }
       },
       icon: Logo(
@@ -150,7 +150,7 @@ class _AndroidHomeState extends State<AndroidHome> {
                                       'https://www.youtube.com/channel/UC_cmrlJAvgCmO5MHdcI2FPw'),
                                   iconApp(Logos.instagram,
                                       'https://www.instagram.com/sazarcode/'),
-                                  imageIconApp('lib/assets/enfo.webp', '')
+                                  imageIconApp('lib/assets/enfo/enfo.webp', '')
                                 ],
                               ),
                             ),

@@ -57,9 +57,9 @@ class PlayStoreDisplay extends StatelessWidget {
                             const SizedBox(
                               width: 10,
                             ),
-                            const Column(
+                            Column(
                               crossAxisAlignment: CrossAxisAlignment.start,
-                              children: [
+                              children: const [
                                 Text(
                                   'Omar Flores',
                                   style: TextStyle(fontWeight: FontWeight.w500),
