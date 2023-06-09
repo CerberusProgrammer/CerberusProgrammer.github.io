@@ -9,6 +9,7 @@ class MainAndroid extends StatelessWidget {
     return MaterialApp(
       debugShowCheckedModeBanner: false,
       theme: ThemeData(
+        colorSchemeSeed: Colors.green,
         brightness: Brightness.light,
         useMaterial3: true,
       ),

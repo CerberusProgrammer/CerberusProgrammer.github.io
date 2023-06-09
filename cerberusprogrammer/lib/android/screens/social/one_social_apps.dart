@@ -30,26 +30,47 @@ class OneSocialApps extends StatelessWidget {
       },
     ];
 
-    return Scrollbar(
-      controller: scrollController,
-      thumbVisibility: false,
-      child: SingleChildScrollView(
-        controller: scrollController,
-        scrollDirection: Axis.horizontal,
-        child: Padding(
-          padding: const EdgeInsets.only(bottom: 8.0),
-          child: Row(
-            children: List.generate(apps.length, (index) {
-              return socialAppsIcons(
-                name: apps[index]['appName'],
-                stars: apps[index]['stars'],
-                logo: apps[index]['logo'],
-                url: apps[index]['url'],
-              );
-            }),
+    return Column(
+      crossAxisAlignment: CrossAxisAlignment.start,
+      children: [
+        const Padding(
+          padding: EdgeInsets.only(left: 16.0),
+          child: Column(
+            crossAxisAlignment: CrossAxisAlignment.start,
+            children: [
+              Text(
+                'Social Media',
+                style: TextStyle(fontWeight: FontWeight.bold, fontSize: 32),
+              ),
+              Text(
+                'Follow me on my social media networks',
+                style: TextStyle(),
+              ),
+            ],
           ),
         ),
-      ),
+        Scrollbar(
+          controller: scrollController,
+          thumbVisibility: false,
+          child: SingleChildScrollView(
+            controller: scrollController,
+            scrollDirection: Axis.horizontal,
+            child: Padding(
+              padding: const EdgeInsets.only(bottom: 8.0),
+              child: Row(
+                children: List.generate(apps.length, (index) {
+                  return socialAppsIcons(
+                    name: apps[index]['appName'],
+                    stars: apps[index]['stars'],
+                    logo: apps[index]['logo'],
+                    url: apps[index]['url'],
+                  );
+                }),
+              ),
+            ),
+          ),
+        ),
+      ],
     );
   }
 

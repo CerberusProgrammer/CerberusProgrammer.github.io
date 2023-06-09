@@ -1,5 +1,8 @@
-import 'package:cerberusprogrammer/android/app_bar.dart';
-import 'package:cerberusprogrammer/android/home.dart';
+import 'package:cerberusprogrammer/android/screens/home/app_bar.dart';
+import 'package:cerberusprogrammer/android/screens/contact/contact_me_apps.dart';
+import 'package:cerberusprogrammer/android/screens/apps/featured_apps.dart';
+import 'package:cerberusprogrammer/android/screens/social/one_social_apps.dart';
+import 'package:cerberusprogrammer/android/screens/home.dart';
 import 'package:flutter/material.dart';
 
 class PlayStore extends StatefulWidget {
@@ -10,7 +13,7 @@ class PlayStore extends StatefulWidget {
 }
 
 class _PlayStoreState extends State<PlayStore> {
-  final int _selectedIndex = 0;
+  int _selectedIndex = 0;
 
   List<BottomNavigationBarItem> buildBottomNavigationItems() {
     return const [
@@ -32,22 +35,34 @@ class _PlayStoreState extends State<PlayStore> {
   List<NavigationRailDestination> buildNavigationRailDestinations() {
     return const [
       NavigationRailDestination(
-        icon: Icon(Icons.favorite_border),
-        selectedIcon: Icon(Icons.favorite),
-        label: Text('First'),
+        icon: Icon(Icons.home_outlined),
+        selectedIcon: Icon(Icons.home),
+        label: Text('Home'),
       ),
       NavigationRailDestination(
-        icon: Icon(Icons.bookmark_border),
-        selectedIcon: Icon(Icons.book),
-        label: Text('Second'),
+        icon: Icon(Icons.dashboard_outlined),
+        selectedIcon: Icon(Icons.dashboard),
+        label: Text('Apps'),
       ),
       NavigationRailDestination(
-        icon: Icon(Icons.games),
-        selectedIcon: Icon(Icons.star),
-        label: Text('Third'),
+        icon: Icon(Icons.person_2_outlined),
+        selectedIcon: Icon(Icons.person_2),
+        label: Text('Contact'),
+      ),
+      NavigationRailDestination(
+        icon: Icon(Icons.share_outlined),
+        selectedIcon: Icon(Icons.share),
+        label: Text('Social'),
       ),
     ];
   }
+
+  List<Widget> pages = const [
+    AndroidHome(),
+    FeaturedApps(),
+    ContactMeApps(),
+    OneSocialApps(),
+  ];
 
   @override
   Widget build(BuildContext context) {
@@ -64,11 +79,15 @@ class _PlayStoreState extends State<PlayStore> {
                 NavigationRail(
                   groupAlignment: 0,
                   selectedIndex: _selectedIndex,
-                  onDestinationSelected: (int index) {},
+                  onDestinationSelected: (int index) {
+                    setState(() {
+                      _selectedIndex = index;
+                    });
+                  },
                   labelType: NavigationRailLabelType.all,
                   destinations: buildNavigationRailDestinations(),
                 ),
-                const Expanded(child: AndroidHome())
+                Expanded(child: pages[_selectedIndex])
               ],
             ),
           )
