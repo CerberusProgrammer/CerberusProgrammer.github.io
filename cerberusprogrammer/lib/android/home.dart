@@ -1,9 +1,8 @@
-import 'dart:ui';
-
-import 'package:cerberusprogrammer/android/playstore.dart';
+import 'package:cerberusprogrammer/android/cards/contact_me_apps.dart';
+import 'package:cerberusprogrammer/android/cards/main_card.dart';
+import 'package:cerberusprogrammer/android/cards/one_social_apps.dart';
 import 'package:flutter/material.dart';
-import 'package:icons_plus/icons_plus.dart';
-import 'package:url_launcher/url_launcher.dart';
+import 'cards/cards.dart';
 
 class AndroidHome extends StatefulWidget {
   const AndroidHome({super.key});
@@ -12,6 +11,120 @@ class AndroidHome extends StatefulWidget {
   State<AndroidHome> createState() => _AndroidHomeState();
 }
 
+class _AndroidHomeState extends State<AndroidHome> {
+  @override
+  Widget build(BuildContext context) {
+    ScrollController scrollController = ScrollController();
+    return LayoutBuilder(
+      builder: (context, constraints) {
+        return MediaQuery.of(context).orientation == Orientation.landscape
+            ? ListView(
+                shrinkWrap: true,
+                children: [
+                  const MainCard(),
+                  const Padding(
+                    padding: EdgeInsets.only(left: 16.0),
+                    child: Column(
+                      crossAxisAlignment: CrossAxisAlignment.start,
+                      children: [
+                        Text(
+                          'Contact Me',
+                          style: TextStyle(
+                              fontWeight: FontWeight.bold, fontSize: 32),
+                        ),
+                        Text(
+                          'Need an app?',
+                          style: TextStyle(),
+                        ),
+                      ],
+                    ),
+                  ),
+                  const Padding(
+                    padding: EdgeInsets.only(top: 8, left: 16, right: 16),
+                    child: ContactMeApps(),
+                  ),
+                  const Padding(
+                    padding: EdgeInsets.only(left: 16.0, bottom: 8),
+                    child: Column(
+                      crossAxisAlignment: CrossAxisAlignment.start,
+                      children: [
+                        Text(
+                          'Featured Apps',
+                          style: TextStyle(
+                              fontWeight: FontWeight.bold, fontSize: 32),
+                        ),
+                        Text(
+                          'My most favorite apps',
+                          style: TextStyle(),
+                        ),
+                      ],
+                    ),
+                  ),
+                  Center(
+                    child: Scrollbar(
+                      controller: scrollController,
+                      child: SingleChildScrollView(
+                        scrollDirection: Axis.horizontal,
+                        child: Padding(
+                          padding: const EdgeInsets.only(bottom: 8.0),
+                          child: Row(
+                              children: List.generate(cards.length, (index) {
+                            return SizedBox(
+                              width: constraints.maxWidth / 2.5,
+                              height: constraints.maxHeight / 2.05,
+                              child: cards[index],
+                            );
+                          })),
+                        ),
+                      ),
+                    ),
+                  ),
+                  const Padding(
+                    padding: EdgeInsets.only(left: 16.0),
+                    child: Column(
+                      crossAxisAlignment: CrossAxisAlignment.start,
+                      children: [
+                        Text(
+                          'Social Media',
+                          style: TextStyle(
+                              fontWeight: FontWeight.bold, fontSize: 32),
+                        ),
+                        Text(
+                          'Follow me on my social media networks',
+                          style: TextStyle(),
+                        ),
+                      ],
+                    ),
+                  ),
+                  const Padding(
+                    padding: EdgeInsets.only(top: 8, left: 16, right: 16),
+                    child: OneSocialApps(),
+                  ),
+                ],
+              )
+            : ListView(
+                children: [
+                  Padding(
+                    padding: const EdgeInsets.all(8.0),
+                    child: Center(
+                      child: Wrap(
+                          children: List.generate(2, (index) {
+                        return SizedBox(
+                          width: constraints.maxWidth / 1,
+                          height: constraints.maxHeight / 1.8,
+                          child: cards[index],
+                        );
+                      })),
+                    ),
+                  ),
+                ],
+              );
+      },
+    );
+  }
+}
+
+/*
 class _AndroidHomeState extends State<AndroidHome> {
   Widget iconApp(String logo, String url) {
     return IconButton(
@@ -101,7 +214,7 @@ class _AndroidHomeState extends State<AndroidHome> {
                     height: 150,
                     child: Card(
                       color: Colors.white.withOpacity(0.4),
-                      child: Row(
+                      child: const Row(
                         children: [],
                       ),
                     ),
@@ -168,3 +281,4 @@ class _AndroidHomeState extends State<AndroidHome> {
     );
   }
 }
+*/

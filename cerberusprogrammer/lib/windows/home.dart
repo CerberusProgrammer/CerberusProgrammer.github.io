@@ -12,8 +12,8 @@ class WindowsHome extends StatelessWidget {
           height: 40,
           child: Container(
             color: Colors.blue,
-            child: Row(
-              children: const [],
+            child: const Row(
+              children: [],
             ),
           ),
         )

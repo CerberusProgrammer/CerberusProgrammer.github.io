@@ -1,6 +1,5 @@
+import 'package:cerberusprogrammer/android/playstore.dart';
 import 'package:flutter/material.dart';
-
-import 'home.dart';
 
 class MainAndroid extends StatelessWidget {
   const MainAndroid({super.key});
@@ -13,7 +12,7 @@ class MainAndroid extends StatelessWidget {
         brightness: Brightness.light,
         useMaterial3: true,
       ),
-      home: const AndroidHome(),
+      home: const PlayStore(),
     );
   }
 }
