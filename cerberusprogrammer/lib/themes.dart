@@ -2,6 +2,7 @@ import 'package:flutter/material.dart';
 
 class Themes {
   static int defaultIndex = 11;
+  static bool darkTheme = false;
   static List<Color> colors = [
     Colors.red,
     Colors.pink,

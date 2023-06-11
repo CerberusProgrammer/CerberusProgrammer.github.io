@@ -1,4 +1,4 @@
-import 'package:cerberusprogrammer/android/screens/home/app_bar.dart';
+import 'package:cerberusprogrammer/android/widgets/app_bar.dart';
 import 'package:cerberusprogrammer/android/screens/contact/contact_me_apps.dart';
 import 'package:cerberusprogrammer/android/screens/apps/featured_apps.dart';
 import 'package:cerberusprogrammer/android/screens/social/one_social_apps.dart';
@@ -91,33 +91,33 @@ class _PlayStoreState extends State<PlayStore> {
               ],
             ),
           )
-        : const DefaultTabController(
-            length: 3,
+        : DefaultTabController(
+            length: 4,
             child: Scaffold(
-              appBar: PreferredSize(
+              appBar: const PreferredSize(
                   preferredSize: Size(20, 60), child: AppBarCustom()),
               body: TabBarView(
-                children: [
-                  AndroidHome(),
-                  AndroidHome(),
-                  AndroidHome(),
-                ],
+                children: pages,
               ),
-              bottomNavigationBar: TabBar(
+              bottomNavigationBar: const TabBar(
                 tabs: [
                   Tab(
                     icon: Icon(
-                      Icons.directions_car,
+                      Icons.home,
                     ),
-                    text: 'Games',
+                    text: 'Home',
                   ),
                   Tab(
-                    icon: Icon(Icons.directions_transit),
+                    icon: Icon(Icons.dashboard),
                     text: 'Apps',
                   ),
                   Tab(
-                    icon: Icon(Icons.directions_bike),
-                    text: 'Favorites',
+                    icon: Icon(Icons.person_2),
+                    text: 'Contact',
+                  ),
+                  Tab(
+                    icon: Icon(Icons.share),
+                    text: 'Social',
                   ),
                 ],
               ),

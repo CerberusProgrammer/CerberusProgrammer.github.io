@@ -16,41 +16,15 @@ class _AndroidHomeState extends State<AndroidHome> {
   Widget build(BuildContext context) {
     return LayoutBuilder(
       builder: (context, constraints) {
-        return MediaQuery.of(context).orientation == Orientation.landscape
-            ? ListView(
-                shrinkWrap: true,
-                children: const [
-                  MainCard(),
-                  Padding(
-                    padding: EdgeInsets.only(top: 8, left: 16, right: 16),
-                    child: ContactMeApps(),
-                  ),
-                  Padding(
-                    padding: EdgeInsets.only(top: 8, left: 16, right: 16),
-                    child: FeaturedApps(),
-                  ),
-                  Padding(
-                    padding: EdgeInsets.only(top: 8, left: 16, right: 16),
-                    child: OneSocialApps(),
-                  ),
-                ],
-              )
-            : ListView(
-                children: [
-                  Padding(
-                    padding: const EdgeInsets.all(8.0),
-                    child: Center(
-                      child: Wrap(
-                          children: List.generate(2, (index) {
-                        return SizedBox(
-                          width: constraints.maxWidth / 1,
-                          height: constraints.maxHeight / 1.8,
-                        );
-                      })),
-                    ),
-                  ),
-                ],
-              );
+        return ListView(
+          shrinkWrap: true,
+          children: const [
+            MainCard(),
+            ContactMeApps(),
+            FeaturedApps(),
+            OneSocialApps(),
+          ],
+        );
       },
     );
   }

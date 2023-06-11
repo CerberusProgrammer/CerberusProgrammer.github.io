@@ -36,47 +36,50 @@ class ContactMeApps extends StatelessWidget {
       },
     ];
 
-    return Column(
-      crossAxisAlignment: CrossAxisAlignment.start,
-      children: [
-        const Padding(
-          padding: EdgeInsets.only(left: 16.0),
-          child: Column(
-            crossAxisAlignment: CrossAxisAlignment.start,
-            children: [
-              Text(
-                'Contact Me',
-                style: TextStyle(fontWeight: FontWeight.bold, fontSize: 32),
-              ),
-              Text(
-                'Need an app?',
-                style: TextStyle(),
-              ),
-            ],
+    return Padding(
+      padding: const EdgeInsets.only(top: 8, left: 16, right: 16),
+      child: Column(
+        crossAxisAlignment: CrossAxisAlignment.start,
+        children: [
+          const Padding(
+            padding: EdgeInsets.only(left: 16.0),
+            child: Column(
+              crossAxisAlignment: CrossAxisAlignment.start,
+              children: [
+                Text(
+                  'Contact Me',
+                  style: TextStyle(fontWeight: FontWeight.bold, fontSize: 32),
+                ),
+                Text(
+                  'Need an app?',
+                  style: TextStyle(),
+                ),
+              ],
+            ),
           ),
-        ),
-        Scrollbar(
-          controller: scrollController,
-          thumbVisibility: false,
-          child: SingleChildScrollView(
+          Scrollbar(
             controller: scrollController,
-            scrollDirection: Axis.horizontal,
-            child: Padding(
-              padding: const EdgeInsets.only(bottom: 8.0),
-              child: Row(
-                children: List.generate(apps.length, (index) {
-                  return socialAppsIcons(
-                    name: apps[index]['appName'],
-                    stars: apps[index]['stars'],
-                    logo: apps[index]['logo'],
-                    url: apps[index]['url'],
-                  );
-                }),
+            thumbVisibility: false,
+            child: SingleChildScrollView(
+              controller: scrollController,
+              scrollDirection: Axis.horizontal,
+              child: Padding(
+                padding: const EdgeInsets.only(bottom: 8.0),
+                child: Row(
+                  children: List.generate(apps.length, (index) {
+                    return socialAppsIcons(
+                      name: apps[index]['appName'],
+                      stars: apps[index]['stars'],
+                      logo: apps[index]['logo'],
+                      url: apps[index]['url'],
+                    );
+                  }),
+                ),
               ),
             ),
           ),
-        ),
-      ],
+        ],
+      ),
     );
   }
 

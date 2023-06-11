@@ -58,44 +58,47 @@ class FeaturedApps extends StatelessWidget {
   @override
   Widget build(BuildContext context) {
     ScrollController scrollController = ScrollController();
-    return Column(
-      crossAxisAlignment: CrossAxisAlignment.start,
-      children: [
-        const Padding(
-          padding: EdgeInsets.only(left: 8.0),
-          child: Text(
-            'Featured Apps',
-            style: TextStyle(fontWeight: FontWeight.bold, fontSize: 32),
+    return Padding(
+      padding: const EdgeInsets.only(top: 8, left: 16, right: 16),
+      child: Column(
+        crossAxisAlignment: CrossAxisAlignment.start,
+        children: [
+          const Padding(
+            padding: EdgeInsets.only(left: 8.0),
+            child: Text(
+              'Featured Apps',
+              style: TextStyle(fontWeight: FontWeight.bold, fontSize: 32),
+            ),
           ),
-        ),
-        const Padding(
-          padding: EdgeInsets.only(left: 8.0, bottom: 8),
-          child: Text(
-            'My most favorite apps',
-            style: TextStyle(),
+          const Padding(
+            padding: EdgeInsets.only(left: 8.0, bottom: 8),
+            child: Text(
+              'App that I developed',
+              style: TextStyle(),
+            ),
           ),
-        ),
-        Scrollbar(
-          controller: scrollController,
-          child: SingleChildScrollView(
+          Scrollbar(
             controller: scrollController,
-            scrollDirection: Axis.horizontal,
-            child: Padding(
-              padding: const EdgeInsets.only(bottom: 8.0),
-              child: Row(
-                crossAxisAlignment: CrossAxisAlignment.start,
-                children: List.generate(cards.length, (index) {
-                  return SizedBox(
-                    width: 450,
-                    height: 300,
-                    child: cards[index],
-                  );
-                }),
+            child: SingleChildScrollView(
+              controller: scrollController,
+              scrollDirection: Axis.horizontal,
+              child: Padding(
+                padding: const EdgeInsets.only(bottom: 8.0),
+                child: Row(
+                  crossAxisAlignment: CrossAxisAlignment.start,
+                  children: List.generate(cards.length, (index) {
+                    return SizedBox(
+                      width: 450,
+                      height: 300,
+                      child: cards[index],
+                    );
+                  }),
+                ),
               ),
             ),
           ),
-        ),
-      ],
+        ],
+      ),
     );
   }
 }
