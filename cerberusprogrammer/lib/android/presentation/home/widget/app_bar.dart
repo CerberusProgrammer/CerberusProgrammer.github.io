@@ -1,4 +1,4 @@
-import 'package:cerberusprogrammer/android/widgets/playstore_display.dart';
+import 'package:cerberusprogrammer/android/presentation/home/widget/playstore_display.dart';
 import 'package:flutter/material.dart';
 import 'package:icons_plus/icons_plus.dart';
 

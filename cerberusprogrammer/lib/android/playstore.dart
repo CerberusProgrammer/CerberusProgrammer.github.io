@@ -1,8 +1,8 @@
-import 'package:cerberusprogrammer/android/widgets/app_bar.dart';
-import 'package:cerberusprogrammer/android/screens/contact/contact_me_apps.dart';
-import 'package:cerberusprogrammer/android/screens/apps/featured_apps.dart';
-import 'package:cerberusprogrammer/android/screens/social/one_social_apps.dart';
-import 'package:cerberusprogrammer/android/screens/home.dart';
+import 'package:cerberusprogrammer/android/presentation/home/widget/app_bar.dart';
+import 'package:cerberusprogrammer/android/presentation/contact/contact_me_apps.dart';
+import 'package:cerberusprogrammer/android/presentation/apps/featured_apps.dart';
+import 'package:cerberusprogrammer/android/presentation/social/one_social_apps.dart';
+import 'package:cerberusprogrammer/android/presentation/home.dart';
 import 'package:flutter/material.dart';
 
 class PlayStore extends StatefulWidget {
