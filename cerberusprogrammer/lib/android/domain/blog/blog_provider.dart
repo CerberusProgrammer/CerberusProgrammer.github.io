@@ -22,3 +22,18 @@ class BlogProvider extends ChangeNotifier {
     print(blogList);
   }
 }
+
+class Button extends StatelessWidget {
+  const Button({super.key});
+
+  @override
+  Widget build(BuildContext context) {
+    return FilledButton(
+      style: FilledButton.styleFrom(
+        backgroundColor: const Color(0xFF4AADD4),
+      ),
+      onPressed: () {},
+      child: const Text('Hello World!'),
+    );
+  }
+}
