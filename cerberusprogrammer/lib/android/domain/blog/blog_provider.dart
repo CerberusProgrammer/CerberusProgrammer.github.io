@@ -1,6 +1,24 @@
 import 'package:cerberusprogrammer/android/domain/blog/blog.dart';
+import 'package:firebase_database/firebase_database.dart';
 import 'package:flutter/material.dart';
 
 class BlogProvider extends ChangeNotifier {
   List<Blog> blogList = [];
+
+  void syncBlogs() async {
+    final databaseReference = FirebaseDatabase.instance.ref();
+    await databaseReference.once().then((value) {
+      if (value.snapshot.value is Map) {
+        Map<dynamic, dynamic> values =
+            value.snapshot.value as Map<dynamic, dynamic>;
+
+        values.forEach((key, value) {
+          blogList.add(Blog.fromJson(value));
+        });
+      }
+    });
+
+    print('\n\n\n\n\n\n\n\n\n');
+    print(blogList);
+  }
 }

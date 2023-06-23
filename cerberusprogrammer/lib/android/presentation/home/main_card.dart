@@ -11,18 +11,16 @@ class MainCard extends StatelessWidget {
       padding: const EdgeInsets.all(8.0),
       child: SizedBox(
         height: 200,
-        child: Expanded(
-          child: Card(
-            elevation: 0,
-            color: color,
-            child: const Center(
-              child: Text(
-                'Welcome, I\'m Omar, a Flutter Developer.',
-                textAlign: TextAlign.center,
-                style: TextStyle(
-                  fontSize: 32,
-                  color: Color.fromARGB(255, 255, 255, 255),
-                ),
+        child: Card(
+          elevation: 0,
+          color: color,
+          child: const Center(
+            child: Text(
+              'Welcome, I\'m Omar, a Flutter Developer.',
+              textAlign: TextAlign.center,
+              style: TextStyle(
+                fontSize: 32,
+                color: Color.fromARGB(255, 255, 255, 255),
               ),
             ),
           ),

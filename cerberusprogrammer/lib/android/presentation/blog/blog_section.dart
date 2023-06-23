@@ -1,4 +1,6 @@
+import 'package:cerberusprogrammer/android/domain/blog/blog_provider.dart';
 import 'package:flutter/material.dart';
+import 'package:provider/provider.dart';
 
 class BlogSection extends StatelessWidget {
   const BlogSection({super.key});
@@ -6,6 +8,7 @@ class BlogSection extends StatelessWidget {
   @override
   Widget build(BuildContext context) {
     final scrollController = ScrollController();
+    final blogProvider = context.watch<BlogProvider>();
 
     return Padding(
       padding: const EdgeInsets.only(top: 8, left: 16, right: 16),
@@ -18,11 +21,11 @@ class BlogSection extends StatelessWidget {
               crossAxisAlignment: CrossAxisAlignment.start,
               children: [
                 Text(
-                  'Social Media',
+                  'Blog',
                   style: TextStyle(fontWeight: FontWeight.bold, fontSize: 32),
                 ),
                 Text(
-                  'Follow me on my social media networks',
+                  'Learn more about my knowledge',
                   style: TextStyle(),
                 ),
               ],
@@ -37,7 +40,14 @@ class BlogSection extends StatelessWidget {
               child: Padding(
                 padding: const EdgeInsets.only(bottom: 8.0),
                 child: Row(
-                  children: [],
+                  children:
+                      List.generate(blogProvider.blogList.length, (index) {
+                    return Card(
+                      child: Text(
+                        blogProvider.blogList[index].title,
+                      ),
+                    );
+                  }),
                 ),
               ),
             ),
