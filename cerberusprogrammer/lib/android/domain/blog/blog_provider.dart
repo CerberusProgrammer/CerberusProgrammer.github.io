@@ -6,7 +6,7 @@ class BlogProvider extends ChangeNotifier {
   List<Blog> blogList = [];
 
   void syncBlogs() async {
-    final databaseReference = FirebaseDatabase.instance.ref();
+    final databaseReference = FirebaseDatabase.instance.ref().child('blogs');
     await databaseReference.once().then((value) {
       if (value.snapshot.value is Map) {
         Map<dynamic, dynamic> values =
@@ -17,9 +17,6 @@ class BlogProvider extends ChangeNotifier {
         });
       }
     });
-
-    print('\n\n\n\n\n\n\n\n\n');
-    print(blogList);
   }
 }
 
