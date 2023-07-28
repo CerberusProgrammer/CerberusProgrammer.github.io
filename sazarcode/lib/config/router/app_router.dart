@@ -7,7 +7,7 @@ final appRouter = GoRouter(
     GoRoute(
       path: '/',
       name: 'dashboard',
-      builder: (context, state) => const Dashboard(),
+      builder: (context, state) => const AboutScreen(),
       routes: const [],
     ),
   ],
