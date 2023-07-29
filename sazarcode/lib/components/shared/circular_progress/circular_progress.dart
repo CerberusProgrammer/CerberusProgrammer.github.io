@@ -77,7 +77,7 @@ class _CircularProgressState extends State<CircularProgress>
             ),
           ),
         ),
-        widget.widget,
+        SizedBox(width: 80, height: 80, child: widget.widget),
       ],
     );
   }
