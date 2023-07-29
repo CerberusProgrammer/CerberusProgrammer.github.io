@@ -1,7 +1,7 @@
 import 'package:flutter/material.dart';
 
 class AppTheme {
-  final int indexColor = 4;
+  final int indexColor = 8;
   final List<Color> themeColor = [
     Colors.red,
     Colors.pink,
@@ -11,7 +11,7 @@ class AppTheme {
     Colors.lightBlue,
     Colors.cyan,
     Colors.teal,
-    Colors.green,
+    Color(0xFF4CAF50),
     Colors.lightGreen,
     Colors.lime,
     Colors.amber,

@@ -1,5 +1,6 @@
 import 'package:go_router/go_router.dart';
-import '../../components/screens/screens.dart';
+
+import '../../components/screens/dashboard.dart';
 
 final appRouter = GoRouter(
   initialLocation: '/',
@@ -7,7 +8,7 @@ final appRouter = GoRouter(
     GoRoute(
       path: '/',
       name: 'dashboard',
-      builder: (context, state) => const AboutScreen(),
+      builder: (context, state) => const Dashboard(),
       routes: const [],
     ),
   ],
