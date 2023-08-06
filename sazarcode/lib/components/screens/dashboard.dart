@@ -4,6 +4,8 @@ import 'package:sazarcode/components/screens/footer_screen.dart';
 import 'package:sazarcode/components/screens/presentation_screen.dart';
 import 'package:sazarcode/components/screens/work_screen.dart';
 
+import '../shared/drawer.dart';
+
 class Dashboard extends StatelessWidget {
   const Dashboard({super.key});
 
@@ -20,7 +22,7 @@ class Dashboard extends StatelessWidget {
       ),
       TextButton(
         onPressed: () {},
-        child: const Text('Portfolio'),
+        child: const Text('Work'),
       ),
       TextButton(
         onPressed: () {},
@@ -30,10 +32,12 @@ class Dashboard extends StatelessWidget {
     ];
 
     return Scaffold(
-      appBar: AppBar(
-        title: const Text('SazarCode'),
-        actions: appBarItems,
-      ),
+      appBar: MediaQuery.of(context).size.width > 525
+          ? AppBar(
+              title: const Text('SazarCode'),
+              actions: appBarItems,
+            )
+          : AppBar(title: const Center(child: Text('SazarCode'))),
       body: const _DashboardScreenView(),
     );
   }

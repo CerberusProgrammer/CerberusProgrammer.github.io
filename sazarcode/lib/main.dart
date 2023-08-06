@@ -1,9 +1,14 @@
 import 'package:flutter/material.dart';
+import 'package:provider/provider.dart';
+import 'package:sazarcode/components/providers/theme_changer.dart';
 import 'package:sazarcode/config/router/app_router.dart';
-import 'package:sazarcode/config/theme/app_theme.dart';
 
 void main() {
-  runApp(const MainApp());
+  runApp(MultiProvider(providers: [
+    ChangeNotifierProvider(
+      create: (_) => ThemeChanger(),
+    )
+  ], child: const MainApp()));
 }
 
 class MainApp extends StatelessWidget {
@@ -14,7 +19,7 @@ class MainApp extends StatelessWidget {
     return MaterialApp.router(
       debugShowCheckedModeBanner: false,
       routerConfig: appRouter,
-      theme: AppTheme().getAppTheme(),
+      theme: context.watch<ThemeChanger>().getThemeData,
     );
   }
 }

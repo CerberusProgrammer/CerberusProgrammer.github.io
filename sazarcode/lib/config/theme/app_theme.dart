@@ -1,8 +1,7 @@
 import 'package:flutter/material.dart';
 
 class AppTheme {
-  final int indexColor = 8;
-  final List<Color> themeColor = [
+  static const List<Color> colors = [
     Colors.red,
     Colors.pink,
     Colors.purple,
@@ -11,7 +10,7 @@ class AppTheme {
     Colors.lightBlue,
     Colors.cyan,
     Colors.teal,
-    Color(0xFF4CAF50),
+    Colors.green,
     Colors.lightGreen,
     Colors.lime,
     Colors.amber,
@@ -20,11 +19,4 @@ class AppTheme {
     Colors.brown,
     Colors.blueGrey
   ];
-  final bool isDarkMode = false;
-
-  ThemeData getAppTheme() => ThemeData(
-        useMaterial3: true,
-        colorSchemeSeed: themeColor[indexColor],
-        brightness: isDarkMode ? Brightness.dark : Brightness.light,
-      );
 }

@@ -13,6 +13,7 @@ class PresentationScreen extends StatelessWidget {
         children: [
           SvgPicture.asset(
             'assets/svg/undraw_programming_re_kg9v.svg',
+            height: MediaQuery.of(context).size.width / 8,
           ),
           const Text('Full Stack Developer',
               style: TextStyle(fontSize: 24, fontWeight: FontWeight.bold),
