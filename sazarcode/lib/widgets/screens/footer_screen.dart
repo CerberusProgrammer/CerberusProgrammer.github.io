@@ -1,7 +1,7 @@
 import 'package:flutter/material.dart';
 import 'package:font_awesome_flutter/font_awesome_flutter.dart';
 import 'package:provider/provider.dart';
-import 'package:sazarcode/components/providers/theme_changer_provider.dart';
+import 'package:sazarcode/widgets/providers/theme_changer_provider.dart';
 import 'package:sazarcode/config/theme/app_theme.dart';
 import 'package:url_launcher/url_launcher.dart';
 
