@@ -1,7 +1,7 @@
 import 'package:flutter/material.dart';
 import 'package:sazarcode/config/theme/app_theme.dart';
 
-class ThemeChanger extends ChangeNotifier {
+class ThemeChangerProvider extends ChangeNotifier {
   int indexTheme = 8;
 
   ThemeData get getThemeData {

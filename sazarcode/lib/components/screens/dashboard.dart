@@ -1,19 +1,26 @@
 import 'package:flutter/material.dart';
+import 'package:provider/provider.dart';
+import 'package:sazarcode/components/providers/scroll_controller_provider.dart';
 import 'package:sazarcode/components/screens/about_screen.dart';
 import 'package:sazarcode/components/screens/footer_screen.dart';
 import 'package:sazarcode/components/screens/presentation_screen.dart';
 import 'package:sazarcode/components/screens/work_screen.dart';
 
-import '../shared/drawer.dart';
-
-class Dashboard extends StatelessWidget {
+class Dashboard extends StatefulWidget {
   const Dashboard({super.key});
 
+  @override
+  State<Dashboard> createState() => _DashboardState();
+}
+
+class _DashboardState extends State<Dashboard> {
   @override
   Widget build(BuildContext context) {
     final appBarItems = [
       TextButton(
-        onPressed: () {},
+        onPressed: () {
+          context.read<ScrollControllerProvider>().moveTo(100);
+        },
         child: const Text('About'),
       ),
       TextButton(
@@ -49,6 +56,7 @@ class _DashboardScreenView extends StatelessWidget {
   @override
   Widget build(BuildContext context) {
     return ListView(
+      controller: context.watch<ScrollControllerProvider>().scrollController,
       children: [
         SizedBox(
           height: MediaQuery.of(context).size.height,

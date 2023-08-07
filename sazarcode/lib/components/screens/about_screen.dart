@@ -92,7 +92,7 @@ class _PresentationText extends StatelessWidget {
               height: 32,
             ),
             Text(
-              'Since beginning my journey as a freelance designer over 11 years ago, Ive done remote work for agencies, consulted for startups, and collaborated with talented people to create digital products for both business and consumer use. Im quietly confident, naturally curious, and perpetually working on improving my chops one design problem at a time.',
+              'I’m a programmer passionate about constant learning and innovation. I specialize in developing mobile and desktop applications that adapt to the needs of users. My goal is to keep improving my skills and knowledge to create innovative technological solutions.',
               textAlign: TextAlign.center,
               style: TextStyle(
                 fontSize: 18,

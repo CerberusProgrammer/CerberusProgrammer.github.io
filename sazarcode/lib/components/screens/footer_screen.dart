@@ -1,8 +1,9 @@
 import 'package:flutter/material.dart';
 import 'package:font_awesome_flutter/font_awesome_flutter.dart';
 import 'package:provider/provider.dart';
-import 'package:sazarcode/components/providers/theme_changer.dart';
+import 'package:sazarcode/components/providers/theme_changer_provider.dart';
 import 'package:sazarcode/config/theme/app_theme.dart';
+import 'package:url_launcher/url_launcher.dart';
 
 class FooterScreen extends StatelessWidget {
   const FooterScreen({super.key});
@@ -35,6 +36,14 @@ class _SocialMedia extends StatelessWidget {
       FontAwesomeIcons.github,
     ];
 
+    final List<String> urlsData = [
+      'https://www.facebook.com/HangingEmperor/',
+      'https://www.instagram.com/sazarcode/',
+      'https://www.youtube.com/channel/UC_cmrlJAvgCmO5MHdcI2FPw',
+      'https://www.linkedin.com/in/omar-flores-salazar-1a30a1238/',
+      'https://github.com/CerberusProgrammer',
+    ];
+
     return Align(
       alignment: Alignment.bottomCenter,
       child: Container(
@@ -54,7 +63,13 @@ class _SocialMedia extends StatelessWidget {
               mainAxisAlignment: MainAxisAlignment.center,
               children: List.generate(iconsData.length, (index) {
                 return IconButton(
-                  onPressed: () {},
+                  onPressed: () async {
+                    final Uri url = Uri.parse(urlsData[index]);
+
+                    if (await canLaunchUrl(url)) {
+                      await launchUrl(url);
+                    }
+                  },
                   icon: Icon(
                     iconsData[index],
                     size: 46,
@@ -100,7 +115,18 @@ class _ContactInformation extends StatelessWidget {
                           width: MediaQuery.of(context).size.width / 15,
                         ),
                         FilledButton(
-                          onPressed: () {},
+                          onPressed: () async {
+                            final Uri params = Uri(
+                              scheme: 'mailto',
+                              path: 'cerberusprogrammer@gmail.com',
+                              query:
+                                  'subject=[Write me your request]&body=[Tell me about your request]',
+                            );
+
+                            if (await canLaunchUrl(params)) {
+                              await launchUrl(params);
+                            }
+                          },
                           style: FilledButton.styleFrom(
                             backgroundColor: Colors.white,
                             foregroundColor:
@@ -109,7 +135,7 @@ class _ContactInformation extends StatelessWidget {
                           child: Padding(
                             padding: const EdgeInsets.all(16.0),
                             child: Text(
-                              'Send me an email',
+                              'Contact me',
                               style: TextStyle(
                                 color: Theme.of(context).colorScheme.primary,
                                 fontSize: 18,
@@ -144,7 +170,7 @@ class _ContactInformation extends StatelessWidget {
                           child: Padding(
                             padding: const EdgeInsets.all(16.0),
                             child: Text(
-                              'Send me an email',
+                              'Contact me',
                               style: TextStyle(
                                 color: Theme.of(context).colorScheme.primary,
                                 fontSize: 18,
@@ -185,7 +211,7 @@ class _IconsChangeTheme extends StatelessWidget {
                       color: Color.fromARGB(70, 35, 35, 35), width: 8),
                 ),
                 onPressed: () {
-                  context.read<ThemeChanger>().selectTheme(index);
+                  context.read<ThemeChangerProvider>().selectTheme(index);
                 },
                 icon: const Text(''),
               ),
