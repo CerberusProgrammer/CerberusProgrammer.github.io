@@ -1,5 +1,6 @@
 import 'package:flutter/material.dart';
 import 'package:flutter_svg/flutter_svg.dart';
+import 'package:url_launcher/url_launcher.dart';
 
 class PresentationScreen extends StatelessWidget {
   const PresentationScreen({super.key});
@@ -24,7 +25,16 @@ class PresentationScreen extends StatelessWidget {
               style: TextStyle(fontSize: 18, fontWeight: FontWeight.w300),
               textAlign: TextAlign.center),
           const SizedBox(height: 150),
-          OutlinedButton(onPressed: () {}, child: const Text('Hired me')),
+          OutlinedButton(
+              onPressed: () async {
+                final Uri url =
+                    Uri.parse('https://es.fiverr.com/salazarprograms');
+
+                if (await canLaunchUrl(url)) {
+                  await launchUrl(url);
+                }
+              },
+              child: const Text('Hired me')),
         ],
       ),
     );
