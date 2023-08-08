@@ -7,9 +7,7 @@ class BlogProvider extends ChangeNotifier {
   List<Blog> blogs = [];
 
   void syncBlogs() {
-    // TODO: call API and send the blogs to the list.
     fetching = true;
-    print('uwu');
     final databaseReference = FirebaseDatabase.instance.ref().child('blogs');
     databaseReference.once().then((value) {
       if (value.snapshot.value is Map) {
@@ -18,7 +16,6 @@ class BlogProvider extends ChangeNotifier {
 
         values.forEach((key, value) {
           blogs.add(Blog.fromJSON(value));
-          print(blogs[0].title);
         });
         fetching = false;
         notifyListeners();
