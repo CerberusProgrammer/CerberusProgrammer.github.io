@@ -1,4 +1,5 @@
 import 'package:go_router/go_router.dart';
+import 'package:sazarcode/widgets/screens/blog/blog_list_screen.dart';
 import 'package:sazarcode/widgets/screens/blog/blog_screen.dart';
 
 import '../../widgets/screens/dashboard.dart';
@@ -14,7 +15,7 @@ final appRouter = GoRouter(
         GoRoute(
           path: 'blog',
           name: 'blog-screen',
-          builder: (context, state) => const BlogScreen(),
+          builder: (context, state) => const BlogListScreen(),
         )
       ],
     ),
