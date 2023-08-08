@@ -8,7 +8,9 @@ class BlogProvider extends ChangeNotifier {
 
   void syncBlogs() {
     fetching = true;
+
     final databaseReference = FirebaseDatabase.instance.ref().child('blogs');
+
     databaseReference.once().then((value) {
       if (value.snapshot.value is Map) {
         Map<dynamic, dynamic> values =

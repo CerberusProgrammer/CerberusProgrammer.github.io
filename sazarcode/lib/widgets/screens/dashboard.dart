@@ -1,5 +1,4 @@
 import 'package:flutter/material.dart';
-import 'package:go_router/go_router.dart';
 import 'package:provider/provider.dart';
 import 'package:sazarcode/widgets/providers/scroll_controller_provider.dart';
 import 'package:sazarcode/widgets/screens/about_screen.dart';
@@ -38,7 +37,7 @@ class _DashboardState extends State<Dashboard> {
       ),
       FilledButton(
         onPressed: () {
-          context.pushNamed('blog-screen');
+          Navigator.pushNamed(context, '/blog');
         },
         child: const Text('Blog'),
       ),

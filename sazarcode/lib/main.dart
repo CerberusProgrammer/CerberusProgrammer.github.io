@@ -4,7 +4,9 @@ import 'package:provider/provider.dart';
 import 'package:sazarcode/widgets/providers/blog_provider.dart';
 import 'package:sazarcode/widgets/providers/scroll_controller_provider.dart';
 import 'package:sazarcode/widgets/providers/theme_changer_provider.dart';
-import 'package:sazarcode/config/router/app_router.dart';
+import 'package:sazarcode/widgets/screens/blog/blog_list_screen.dart';
+import 'package:sazarcode/widgets/screens/blog/blog_screen.dart';
+import 'package:sazarcode/widgets/screens/dashboard.dart';
 
 import 'firebase_options.dart';
 
@@ -34,10 +36,14 @@ class MainApp extends StatelessWidget {
 
   @override
   Widget build(BuildContext context) {
-    return MaterialApp.router(
+    return MaterialApp(
       debugShowCheckedModeBanner: false,
-      routerConfig: appRouter,
       theme: context.watch<ThemeChangerProvider>().getThemeData,
+      routes: {
+        '/': (context) => const Dashboard(),
+        '/blog': (context) => const BlogListScreen(),
+        '/blog-content': (context) => const BlogScreen(),
+      },
     );
   }
 }
