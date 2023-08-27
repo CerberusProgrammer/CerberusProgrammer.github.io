@@ -1,6 +1,7 @@
 import 'package:firebase_core/firebase_core.dart';
 import 'package:flutter/material.dart';
 import 'package:provider/provider.dart';
+import 'package:sazarcode/widgets/admin/admin_blog_screen.dart';
 import 'package:sazarcode/widgets/providers/blog_provider.dart';
 import 'package:sazarcode/widgets/providers/scroll_controller_provider.dart';
 import 'package:sazarcode/widgets/providers/theme_changer_provider.dart';
@@ -43,6 +44,7 @@ class MainApp extends StatelessWidget {
         '/': (context) => const Dashboard(),
         '/blog': (context) => const BlogListScreen(),
         '/blog-content': (context) => const BlogScreen(),
+        '/admin': (context) => const AdminBlogScreen(),
       },
     );
   }
